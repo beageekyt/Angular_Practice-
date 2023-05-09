@@ -1,6 +1,43 @@
-<p>hello it is my first angular line</p>
+<h1 class="text_center">Hello Surya</h1>
+<h1 class="text_center">Welcome to the world of web</h1>
 
 <!-- interpolation example -->
-<!-- In interpolation we can't change the value of our variables we can simply show then  -->
+<!-- In interpolation we can't change the value of our variables we can simply show then -->
 <p>My name = {{myName}}</p>
 <p>My age = {{myAge()}}</p>
+
+<!-- Basic commands in Angular 
+npm install -g @angular/cli // command to install angular cli globally
+ng new my-first-app // command to create new angular project
+ng serve // command to run angular project
+ng generate component my-first-component // command to create new component
+ng generate directive my-first-directive // command to create new directive
+ng generate pipe my-first-pipe // command to create new pipe
+ng generate service my-first-service // command to create new service
+ng generate class my-first-class // command to create new class
+ng generate guard my-first-guard // command to create new guard
+ng generate interface my-first-interface // command to create new interface
+ng generate enum my-first-enum // command to create new enum
+ng generate module my-first-module // command to create new module
+ng generate application my-first-application // command to create new application
+ng generate library my-first-library // command to create new library
+ng generate component my-first-component --inline-template --inline-style // command to create new component with inline template and inline style
+-->
+
+<!-- How to use component -->
+<!-- we can also change the tag we are using to access the component by changing the selector variable in .ts file of the component -->
+<app-my-first-component></app-my-first-component>
+
+
+<!-- Inline style component -->
+<!-- Here tag is changed to inline-style -->
+<!-- we can also do same with inline-templete -->
+<inline-style></inline-style>
+
+<!-- When we create module we have to add that module in our import file and we have to import module for use  -->
+<!-- if we want to use module A in Module B then we have to import module A in B and also we have to add in imports-->
+<!-- now for using that module componts we have to export that module so we will add an export option -->
+<app-component-inside-module></app-component-inside-module>
+
+
+
