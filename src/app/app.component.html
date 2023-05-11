@@ -39,5 +39,72 @@ ng generate component my-first-component --inline-template --inline-style // com
 <!-- now for using that module componts we have to export that module so we will add an export option -->
 <app-component-inside-module></app-component-inside-module>
 
+<!-- This button will call a function and show my name -->
+<!-- passing variable to function which is defined -->
+<button (click)="showMyName(myName)">Show my name</button>
+<br><br>
+<!-- events in angular  -->
+<input type="text" #input_field1 (blur)="getInputFieldValue(input_field1.value)" placeholder="onblur">
+<br><br>
+<input type="text" #input_field2 (keyup)="getInputFieldValue(input_field2.value)" placeholder="on keyup">
+<br><br>
+<input type="text" #input_field3 (keydown)="getInputFieldValue(input_field3.value)" placeholder="on keydown">
+<br><br>
+<input type="text" #input_field4 (input)="getInputFieldValue(input_field4.value)" placeholder="on input">
+<br><br>
+
+<!-- we can add style to our elements using three ways  -->
+<!-- 1. inline style -->
+<!-- 2. component style -->
+<!-- 3. global style -->    
+
+<p class="globalStyle">This has global style class but overwritten by component style </p>
+
+<!-- property binding -->
+<!-- property binding same as interpolation both get the variables dinamically but property binding also work on boolean -->
+
+<input type="text" style="width:25%" #input_field5 placeholder="i am using property binding" [disabled] = disable >
+<br><br>
+<input type="text" style="width:25%" #input_field5 placeholder="i am using interpolation" disabled={{disable}}>
+
+<!-- if else in angular -->
+<!-- for if we use *ngIf and for else we have to write code inside <ng-templete> tag -->
+<!-- we can also use then and else in if else -->
+
+<h1 *ngIf="show=='yes'; then ifBlock else elseBlock1"></h1>
+<ng-template #ifBlock>
+    <p>it is if block and value of show is yes</p>
+</ng-template>
+<ng-template #elseBlock1>
+    <p>it is else block and value of show is not yes</p>
+</ng-template>
+
+<!-- another way to write if else condition -->
+<p *ngIf="show=='yes'; else elseBlock2">It is if block and we are using the another method to apply else if </p>
+<ng-template #elseBlock2>
+    <p>it is else block and value of show is not yes and we are using different method to use if else </p>
+</ng-template>
+
+<!-- else if -->
+<!-- for else if we have to use property binding and we use <ng-template> tag -->
+<ng-template [ngIf] = "color == 'red'">
+    <p style="color: red;">I am red comming with else if </p>
+</ng-template>
+<ng-template [ngIf] = "color == 'green'">
+    <p style="color: green;">I am green comming with else if </p>
+</ng-template>
+<ng-template [ngIf] = "color == 'blue'">
+    <p style="color: blue;">I am blue comming with else if </p>
+</ng-template>
+
+<!-- switch in angular -->
+<!-- we can use switch in angular using ngSwitch -->
+<div [ngSwitch] = "color">
+    <p *ngSwitchCase="'red'" style="color: red;">I am red comming with else switch </p>
+    <p *ngSwitchCase="'green'" style="color: green;">I am green comming with switch </p>
+    <p *ngSwitchCase="'blue'" style="color: blue;">I am blue comming with switch</p>
+    <p *ngSwitchDefault="" style="color: pink;">I am default colour  with switch</p>
+</div>
+
 
 

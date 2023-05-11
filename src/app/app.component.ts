@@ -7,9 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-first-project';
-  myName = 'Surya';
+  myName = 'Surya Pratap Singh and Harsh Rajput';
   myAge(){
     return 19;
   }
-  
+  showMyName(myName:any){
+    alert(myName);
+  }
+  getInputFieldValue(inputFieldValue:string){
+    console.log(inputFieldValue);
+  }
+  disable = false;
+  show = 'yes';
+  color = 'green';
 }

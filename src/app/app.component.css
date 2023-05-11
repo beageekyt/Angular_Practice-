@@ -2,3 +2,6 @@
     text-align: center;
     text-decoration: solid;
 }
+.globalStyle {
+    color: rgb(255, 60, 0);
+}
