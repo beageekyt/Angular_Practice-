@@ -96,7 +96,6 @@ ng generate component my-first-component --inline-template --inline-style // com
 <ng-template [ngIf] = "color == 'blue'">
     <p style="color: blue;">I am blue comming with else if </p>
 </ng-template>
-
 <!-- switch in angular -->
 <!-- we can use switch in angular using ngSwitch -->
 <div [ngSwitch] = "color">
@@ -106,5 +105,82 @@ ng generate component my-first-component --inline-template --inline-style // com
     <p *ngSwitchDefault="" style="color: pink;">I am default colour  with switch</p>
 </div>
 
+<!-- loop in angular -->
+<!-- for loop --> 
+<p *ngFor="let item of users">user = {{item}}</p>
 
+<!--style Binding -->
+<div class="container">
+    <p [style.color]="text_color"> i am {{text_color}}</p>
+    <button (click)="changeTextColour()">Change Text colour</button>
+    <br /><br />
+</div>
+
+<!-- form in angular -->
+<!-- step 1 - we have to import FormsModule in app.module.ts file -->
+<!-- we can also save this value and show on front end-->
+<form #registrationForm="ngForm" (ngSubmit)="getData(registrationForm.value)"> 
+    <input type="text" ngModel name="user" placeholder="Enter your name">
+    <br /><br />
+    <input type="text" ngModel name="email" placeholder="Enter your email">
+    <br /><br />
+    <input type="text" ngModel name="password" placeholder="Enter your password">
+    <br /><br />
+    <button>Register</button>
+</form>
+<p>User Name: {{form_data.user}}</p>
+<p>Email: {{form_data.email}}</p>
+<p>Password :{{form_data.password}}</p>
+
+<!-- send data parent to child element -->
+<!-- we have to use @Input() in child element -->
+<!-- we have to use [] in parent element -->
+<!-- we have to add input in import of child ts file -->
+<app-child [data_for_child]="data_for_child"></app-child>
+
+<!-- send data child to parent element-->
+<!-- we have to use @Output() in child element -->
+<!-- we habe to use -->
+<!-- we have to use () in parent element -->
+<!-- for passibg data to parent we have to use function so we define a function in parent and call that function form child and we pass data as arguements -->
+<!-- we have to add output in import of child ts file -->
+<!-- we have to add eventEmitter in import of child ts file -->
+<!-- step1: we will create a function in parent ts file-->
+<!-- step2: we will call that function in parent html file -->
+<!-- step3: we will create @output in child ts file with EventEmitter -->
+<!-- step4: we will call that @output function in child html file and pass data along that file -->
+
+<app-child2 (data_from_parent_event)="data_from_parent($event)"></app-child2>
+<br><br>
+
+<!-- two way binding -->
+<!-- updating and displaying the value at the same time is two way binding -->
+<!-- we have to use ngModel for two way binding -->
+<!-- we have to import FormsModule in app.module.ts file -->
+
+<input type="text" [(ngModel)]="two_way_binding" placeholder="two way binding">
+<p>{{two_way_binding}}</p>
+
+<!-- pipes in angular -->
+<!-- pipes are used to format the data -->
+<!-- we can use pipes in interpolation and property binding -->
+<!-- we can also create our own pipes -->
+<!-- for example we have a text in lower case then we can convert that text into upper case using pipes -->
+
+<p>Without pipes : {{myName}}</p>
+<p>With uppercase pipes : {{myName | uppercase}}</p>
+<p>With slice pipes (here we are using param with pipes  ) : {{myName | slice : 23 : 28 }}</p>
+<p>With slice pipes (here we are using param with pipes and we are using two pipes ) : {{myName | slice : 23 : 28 | uppercase }}</p>
+<p>number pipes for adding extra number {{2.44 | number :  '3.5-8'}}</p>
+<p>number pipes for removing extra number {{20000.442131313131312 | number :  '3.2-4'}}</p>
+
+<!-- custom pipes -->
+<!-- step1: we will create a pipe using ng g p pipe_name -->
+<!-- step2: we will write our logic in pipe file -->
+<!-- step3: we will import that pipe in app.module.ts file -->
+<!-- step4: we will use that pipe in html file -->
+<!-- step5: we will pass the value in pipe using | -->
+<!-- step6: we can also pass the param in pipe using : -->
+<p>These dollars are converted to INR using custom pipe  </p>
+<p>{{200 | uSDtoINR : 83}}</p>
 

@@ -5,3 +5,10 @@
 .globalStyle {
     color: rgb(255, 60, 0);
 }
+.container p,
+.container button {
+    display: inline-block;  
+}
+.container button {
+    margin-left: 10px;
+}
